@@ -1,35 +1,33 @@
-import random
+class A:
+    def __init__(self):
+        self.attr_a = "Атрибут класу A"
+    
+def method_a(self):
+    return "Метод класу A"
 
-class Shifrator:
-    def __init__(self, *numbers):
-        self.__numbers = numbers
-        self.__result = None
-        self.__calculate()
-    def __calculate(self):
-        operation = random.choice(['+', '-', '*', '/'])
+class B:
+    def __init__(self):
+        self.attr_b = "Атрибут класу B"
+    
+def method_b(self):
+    return "Метод класу B"
 
-        if len(self.__numbers) == 0:
-            self.__result = 0
-            return
+class C:
+    def __init__(self):
+        self.attr_c = "Атрибут класу C"
+    
+def method_c(self):
+    return "Метод класу C"
 
-        result = self.__numbers[0]
+class D(A, B, C):
+    def __init__(self):
+        A.__init__(self)
+        B.__init__(self)
+        C.__init__(self)
 
-        for num in self.__numbers[1:]:
-            if operation == '+':
-                result += num
-            elif operation == '-':
-                result -= num
-            elif operation == '*':
-                result *= num
-            elif operation == '/' and num != 0:
-                result /= num
-            else:
-                continue
-
-        self.__result = result
-
-    def __str__(self):
-        return f'Результат: {self.__result}'
-
-shifrator = Shifrator(10, 5, 3)
-print(shifrator)
+print(obj.attr_a)  
+print(obj.method_a())
+print(obj.attr_b)  
+print(obj.method_b())
+print(obj.attr_c)  
+print(obj.method_c())  
